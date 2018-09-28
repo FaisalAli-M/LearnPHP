@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Text Suggestion </title>
+			<script>
+				function showHint(str)
+				{
+					if(str.length == 0)
+					{
+						document.getElementById("hint-txt").innerHTML = "";
+					}
+					else
+					{
+						if(window.XMLHttpRequest) // Check Supportability
+						{	
+							var xmlhttp = new XMLHttpRequest(); // create object for new latest browsers
+						}
+						else
+						{
+							var xmlhttp = new ActiveXObject("Microsoft.XMLHTTP"); // create object for Old browsers
+						}
+						xmlhttp.onreadystatechange = function(){
+							if(this.readyState == 4 && this.status == 200 )
+							{	
+								document.getElementById("hint-txt").innerHTML = this.responseText;
+							}
+						}
+							xmlhttp.open("GET", "P27 AJAX(2)Hint-Text.php?f="+str , true);
+							xmlhttp.send();
+					}
+				
+				}
+			</script>
+	<head>
+	<body>
+		<form>
+			<input type="text" name="name" onkeyup="showHint(this.value)"> 
+		</form>
+		<h3> Suggestion: <span id="hint-txt"> </span> </h3>
+	
+	
+	</body>
+	
+</html>

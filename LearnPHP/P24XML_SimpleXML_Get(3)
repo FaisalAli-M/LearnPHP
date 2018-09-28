@@ -1,0 +1,39 @@
+<?php
+// Get Attribute Values
+// Get Attribute Values as loops
+libxml_use_internal_errors(true);
+$XML = simplexml_load_file("XMLfile3.xml") or die("Error: Object not Create");
+if($XML === false)
+{
+	echo "Failed loading XML: ";
+	foreach(libxml_get_errors() as $error)
+	{
+		echo "<br> Error: " . $error->message;
+	}
+	
+}
+else
+	{
+		echo $XML->book[0]->auther ."<br>";
+		echo $XML->book[1]["catogry"] ."<br>";
+		echo $XML->book[1]->title["lang"] ."<br>";
+	}
+// Use loop for get attribute values
+	if($XML === false)
+{
+	echo "Failed loading XML: ";
+	foreach(libxml_get_errors() as $error)
+	{
+		echo "<br> Error: " . $error->message;
+	}
+	
+}
+else
+	{
+		echo "<br> Catagories Are: ";
+		foreach($XML->children() as $books)
+		{
+			echo "<br>" . $books["catogry"];
+		}
+	}
+?>

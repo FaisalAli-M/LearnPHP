@@ -1,0 +1,4 @@
+main page py header hoga us main home or cart page  ka navigation hoga main page py he card page ka sb display hoga routing sy pr card page ka add button disable
+hoga login krny ka bd enable hoga or signin ka page alag hoga or woh routing sy main page py he khulyga or email py restiction 
+hogi or cart page k side main cart ka total araha hoga.
+ 

@@ -1,0 +1,48 @@
+<DOCTYPE html>
+<head>
+		<title> Text Suggestion </title>
+			<script>
+				function tab(str)
+				{
+					if(str.length == 0)
+					{
+						document.getElementById("table").innerHTML = "";
+					}
+					else
+					{
+						if(window.XMLHttpRequest)
+						{
+							var xmlhttp = new XMLHttpRequest();
+						}
+						else
+						{
+							var xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+						}
+						xmlhttp.onreadystatechange = function(){
+							if(xmlhttp.readyState == 4 && xmlhttp.status == 200)
+							{
+								document.getElementById("table").innerHTML = this.responseText;
+							}
+						}
+						xmlhttp.open("GET","P27 AJAX(3)Table.php?f="+str , true);
+						xmlhttp.send();
+					}
+				}
+			</script>
+</head>
+<body>
+	<form>
+		<select id="options" onchange="tab(this.value)">
+			<option value=""> Select an item </option>
+			<option value="4"> Azhar </option>
+			<option value="2"> Danish </option>
+			<option value="3"> Faisal </option>
+			<option value="1"> Mehmood </option>
+		</select>
+	</form>
+	<div id="table">
+	
+	</div>
+</body>
+</html>			
+			

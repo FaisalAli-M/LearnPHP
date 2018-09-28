@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> PHP and AJAX </title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
+<style>
+#form {background:grey; width:300px ; padding:10px; text-align:center ; margin: auto ; color:white}
+</style>
+<script> 
+$(document).ready(function(){
+	$("#submit").click(function(){
+	var user_name = $("#name").val();
+	var user_email = $("#email").val();
+	var user_pass = $("#pass").val();
+	/*$.post("P27 AJAX(1) with Jquery and html.php",{name:user_name,email:user_email,pass:user_pass},function(data){
+		$("#result").html(data);
+	}); */
+	//Here we can also use AJAX default function for jquery Above and Below both are right
+	$.ajax({
+	url:'P27 AJAX(1) with Jquery and html.php',
+	data:{name:user_name,email:user_email,pass:user_pass},
+	type:'POST',
+	success:function(data)
+	{
+		$("#result").html(data);
+	}
+	
+	
+	});
+	});
+});
+</script
+</head>
+
+<body>
+<div id="form">
+<h1> Registration Form </h1>
+<input type="text" name="name" id="name" placeholder="Enter Your Name"></input> <br><br>
+<input type="text" name="email" id="email" placeholder="Enter Your Email"></input> <br><br>
+<input type="password" name="pass" id="pass" placeholder="Enter Your Password"></input> <br><br>
+<input type="submit" name="submit" id="submit"></input>
+
+
+<div id="result">
+</div>
+</div>
+</body>
+<html>
+

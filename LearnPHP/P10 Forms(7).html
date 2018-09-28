@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		.col {color:red}
+	</style>
+</head>
+<body>
+	
+
+	
+	
+	<h2> Keep the value in the Forms </h2>
+
+	<form method="post" action="Display2.php"> <!-- if we want to send value in other page so in action write file name -->
+		Name: <input type="text" name="fname" value="<?php echo $name ?>" ><span class="col">* <?php echo $nameErr;?></span> <br>
+		Email: <input type="text" name="email" value="<?php echo $em ?>" > <span class="col"> * <?php echo $emErr ;?> </span><br>
+		Website: <input type="text" name="website" value="<?php echo $web ?>" > <span class="col"> * <?php echo $webErr ;?> </span><br>
+		Male: <input type="radio" name="gender" <?php if(isset($gen) && $gen == "Male"){echo "checked";};  ?>  value="Male"> 
+		FeMale: <input type="radio" name="gender" <?php if(isset($gen) && $gen == "FeMale"){echo "checked";};  ?> value="FeMale"> <span class="col"> * <?php echo $genErr ;?> </span><br>
+		<input type="submit" > 
+	<br>
+	</form>
+	<br>
+	
+	
+ 
+</body>
+</html>
